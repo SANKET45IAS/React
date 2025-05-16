@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Without React Example</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <button id="toggleBtn">Toggle & Reload</button>
+
+    <script>
+        // Get stored state or set default
+        let currentState = localStorage.getItem("toggleState") || "This is a Vanilla JS Example";
+        document.getElementById("title").textContent = currentState;
+
+        document.getElementById("toggleBtn").addEventListener("click", () => {
+            let newText = currentState === "This is a Vanilla JS Example" 
+                ? "This would be React in a React App" 
+                : "This is a Vanilla JS Example";
+
+            localStorage.setItem("toggleState", newText); // Save state
+            location.reload(); // Reload page
+        });
+    </script>
+</body>
+</html>
